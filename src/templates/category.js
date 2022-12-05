@@ -8,10 +8,9 @@ import Sidebar from "../components/sidebar"
 
 const Category = ({ data }) => {
   const blogs = data.allPrismicBlog.nodes.filter(item => item.data.category.id === data.prismicBlogCategory.prismicId)
-  console.log(data)
   return (
     <Layout>
-      <Seo title="Blog and News Updates" />
+      <Seo title={`Blog and News Updates ${data.prismicBlogCategory.data.type}`} />
       <section className="flex justify-center py-6 text-center bg-sky-700">
         <div className="container flex">
           <h1 className="self-center text-3xl font-semibold leading-tight text-white">Blog - {data.prismicBlogCategory.data.type}</h1>
