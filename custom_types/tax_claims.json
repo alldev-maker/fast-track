@@ -1,0 +1,54 @@
+{
+  "Main": {
+    "uid": {
+      "type": "UID",
+      "config": {
+        "label": "UID"
+      }
+    },
+    "title": {
+      "type": "Text",
+      "config": {
+        "label": "Title",
+        "placeholder": "Title"
+      }
+    },
+    "description": {
+      "type": "Text",
+      "config": {
+        "label": "Description",
+        "placeholder": "Description"
+      }
+    }
+  },
+  "Claim Box": {
+    "box_heading": {
+      "type": "Text",
+      "config": {
+        "label": "Box Heading",
+        "placeholder": "Box Heading"
+      }
+    },
+    "box_content": {
+      "type": "Text",
+      "config": {
+        "label": "Box Content",
+        "placeholder": "Box Content"
+      }
+    },
+    "claim_list": {
+      "type": "Group",
+      "config": {
+        "fields": {
+          "item": {
+            "type": "Text",
+            "config": {
+              "label": "Item"
+            }
+          }
+        },
+        "label": "Claim List"
+      }
+    }
+  }
+}
