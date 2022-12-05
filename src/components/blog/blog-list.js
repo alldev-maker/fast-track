@@ -4,7 +4,7 @@ import { GatsbyImage, getImage } from "gatsby-plugin-image"
 
 const BlogList = ({ blogs }) => {
   return (
-    <div className="grid gap-10 basis-8/12 mb-14 max-h-[94px]">
+    <div className="grid gap-10 basis-8/12 mb-14 ">
       {
         blogs.map((item, idx) =>
           <article key={idx} className="flex flex-col items-center border shadow-lg md:flex-row card border-slate-200">
