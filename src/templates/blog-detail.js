@@ -10,7 +10,6 @@ import Sidebar from "../components/sidebar"
 
 const Blog = ({ data }) => {
   const blogData = data.prismicBlog.data
-  console.log(data)
   return (
     <Layout>
       <Seo title={blogData.title} />
@@ -57,6 +56,7 @@ export default Blog
 export const query = graphql`
   query BlogQuery($id: String) {
     prismicBlog(id: { eq: $id }) {
+      _previewable
       data {
         title
         summary

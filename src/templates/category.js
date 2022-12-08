@@ -33,6 +33,7 @@ export default Category
 export const query = graphql`
   query CategoryQuery($id: String) {
     prismicBlogCategory(id: { eq: $id }) {
+      _previewable
       data {
         type
       }

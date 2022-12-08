@@ -71,7 +71,8 @@ const ArticleBody = ({ article, articleType }) => {
           {
             related_articles.map((item, idx) =>
               <Link
-                to={`/${articleType.uid}/${item.uid}`}
+                // to={`/${articleType.uid}/${item.uid}`}
+                to={`/article/${item.uid}`}
                 className="group"
                 key={idx}
               >

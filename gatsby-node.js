@@ -58,7 +58,8 @@ exports.createPages = async ({ graphql, actions }) => {
   queryResults.data.allPrismicArticle?.nodes.forEach(node => {
     const articleType = taxClaims.filter(item => item.prismicId === node.data.claim_type.id)[0]
     createPage({
-      path: `/${articleType.uid}/${node.uid}`,
+      // path: `/${articleType.uid}/${node.uid}`,
+      path: `/article/${node.uid}`,
       component: path.resolve(`src/templates/article.js`),
       context: {
         id: node.id,

@@ -36,6 +36,7 @@ export default Article
 export const query = graphql`
   query ArticleQuery($id: String) {
     prismicArticle(id: { eq: $id }) {
+      _previewable
       data {
         title
         summary

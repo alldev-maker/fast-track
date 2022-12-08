@@ -1,12 +1,30 @@
-/**
- * Implement Gatsby's SSR (Server Side Rendering) APIs in this file.
- *
- * See: https://www.gatsbyjs.com/docs/reference/config-files/gatsby-ssr/
- */
+import * as React from 'react'
+import {
+  PrismicPreviewProvider,
+  componentResolverFromMap,
+} from 'gatsby-plugin-prismic-previews'
 
-/**
- * @type {import('gatsby').GatsbySSR['onRenderBody']}
- */
-exports.onRenderBody = ({ setHtmlAttributes }) => {
-  setHtmlAttributes({ lang: `en` })
-}
+import { linkResolver } from "./src/utils/linkResolver"
+import Article from "./src/templates/article"
+import TaxClaims from "./src/templates/tax-claims"
+import Blog from "./src/templates/blog-detail"
+import Category from "./src/templates/category"
+
+export const wrapRootElement = ({ element }) => (
+  <PrismicPreviewProvider
+    repositoryConfigs={[
+      {
+        repositoryName: "fast-track",
+        linkResolver,
+        componentResolver: componentResolverFromMap({
+          tax_claims: TaxClaims,
+          article: Article,
+          blog: Blog,
+          category: Category
+        }),
+      },
+    ]}
+  >
+    {element}
+  </PrismicPreviewProvider>
+)

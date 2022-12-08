@@ -7,7 +7,6 @@ const TaxCards = ({ cards }) => {
     cards,
     node => node
   );
-  console.log(cards)
   return (
     <section className="py-10 md:py-20">
       <div className="container mx-auto">

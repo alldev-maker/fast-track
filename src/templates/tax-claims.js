@@ -15,7 +15,6 @@ const TaxClaims = ({ data }) => {
     claim_list,
   } = data.prismicTaxClaims.data
   const articles = data.allPrismicArticle.nodes.filter(item => item.data.claim_type.id === data.prismicTaxClaims.prismicId)
-
   return (
     <Layout>
       <Seo title={title} />
@@ -88,6 +87,7 @@ export default TaxClaims
 export const query = graphql`
   query TaxClaimsQuery($id: String) {
     prismicTaxClaims(id: { eq: $id }) {
+      _previewable
       prismicId
       data {
         title

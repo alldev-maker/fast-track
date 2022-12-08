@@ -4,6 +4,11 @@
  * See: https://www.gatsbyjs.com/docs/reference/config-files/gatsby-config/
  */
 
+const { linkResolver } = require("./src/utils/linkResolver");
+const dotenv = require('dotenv')
+
+dotenv.config()
+
 /**
  * @type {import('gatsby').GatsbyConfig}
  */
@@ -12,7 +17,7 @@ module.exports = {
     title: `Gatsby Default Starter`,
     description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
     author: `@gatsbyjs`,
-    siteUrl: `https://gatsbystarterdefaultsource.gatsbyjs.io/`,
+    siteUrl: `https://fasttrackmain.gatsbyjs.io/`,
   },
   plugins: [
     `gatsby-plugin-image`,
@@ -44,6 +49,7 @@ module.exports = {
       resolve: 'gatsby-source-prismic',
       options: {
         repositoryName: "fast-track",
+        accessToken: process.env.GATSBY_PRISMIC_ACCESS_TOKEN,
         schemas: {
           tax_claims: require("./custom_types/tax_claims.json"),
           article: require("./custom_types/article.json"),
@@ -52,5 +58,14 @@ module.exports = {
         },
       },
     },
+    {
+      resolve: 'gatsby-plugin-prismic-previews',
+      options: {
+        repositoryName: "fast-track",
+        accessToken: process.env.GATSBY_PRISMIC_ACCESS_TOKEN,
+        linkResolver: linkResolver,
+      },
+    },
+    `gatsby-plugin-sitemap`,
   ],
 }
